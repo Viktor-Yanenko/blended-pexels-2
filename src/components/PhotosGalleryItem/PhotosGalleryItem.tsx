@@ -4,13 +4,13 @@ import { type Photo } from "../../types/photo";
 
 interface PhotosGalleryItemProps{
     photo: Photo;
+    onSelect: (photo: Photo) => void;
 }
 
-export default function PhotosGalleryItem({
-    photo: {src, alt, avg_color}
-}: PhotosGalleryItemProps) {
+export default function PhotosGalleryItem({ photo, onSelect }: PhotosGalleryItemProps) {
+    const { src, alt, avg_color } = photo;
     return (
-        <GridItem>
+        <GridItem photo={photo} onSelect={onSelect}>
             <div className={css.thumb} style={{
                 backgroundColor: avg_color,
                 borderColor: avg_color,

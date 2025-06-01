@@ -2,27 +2,19 @@ import css from './GridItem.module.css';
 import { type Photo } from '../../types/photo';
 
 interface GridItemProps{
+    photo: Photo;
     onSelect: (photo: Photo) => void;
-    photos: Photo[];
     children: React.ReactNode;
 }
 
-export default function GridItem({ onSelect, photos, children }: GridItemProps) {
+export default function GridItem({ photo, onSelect, children }: GridItemProps) {
+    
     return (
-        <>
-        {
-            photos.map(photo => {
-                return(
-                    <li
-                        key={photo.id}
-                        className={css.item}
-                        onClick={() => onSelect(photo)}>
-                        
-                        {children}
-                    </li>
-                )
-            })
-        }
-        </>
+        <li
+            className={css.item}
+            onClick={() => onSelect(photo)}
+        >
+            {children}
+        </li>
     )
 }

@@ -46,7 +46,7 @@ export default function App() {
             <Section>
                 <Container>
                     <Form onSubmit={handleSearch} />
-                    <PhotosGallery />
+                    <PhotosGallery photos={data?.photos ?? []} onSelect={openModal}/>
                     {/* <Modal/> */}
                 </Container>
             </Section>
