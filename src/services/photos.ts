@@ -4,11 +4,6 @@ import { type Photo } from "../types/photo";
 const API_KEY = import.meta.env.VITE_PEXELS_TOKEN;
 const API_URL = 'https://api.pexels.com/v1/search';
 
-axios.defaults.headers.common['Authorization'] = API_KEY;
-axios.defaults.params = {
-  
-};
-
 interface PhotoHttpResponse {
     page: number;
     photos: Photo[];
@@ -28,7 +23,5 @@ export const getPhotos = async (query:string, page: number):Promise<PhotoHttpRes
             Authorization: API_KEY,
         }
     });
-    
-    console.log(response.data);
     return response.data;
 }
